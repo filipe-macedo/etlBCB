@@ -1,16 +1,35 @@
 # ETL do Banco Central do Brasil
 
-Dicionário de dados
+## Meios de Pagamentos Trimestrais
 
-|Nome	|Tipo	|Título	|Descrição |
+### Dicionário de Dados
+
+| Nome do Campo   | Tipo      | Título  | Descrição |
 | --- | --- | --- | --- |
-|trimestre	|texto	|Trimestre	|Corresponde ao ano e trimestre das informações|
-|nomeBandeira	|texto	|Bandeira do cartão	|Corresponde ao nome da bandeira do cartão|
-|nomeFuncao	|texto	|Função do cartão	|Corresponde ao nome da função do cartão (crédito, débito e pré-pago)|
-|produto	|texto	|Produto do cartão	|Categoria atribuída a um cartão de pagamento.|
-|qtdCartoesEmitidos	|inteiro	|Quantidade de cartões emitidos	|Corresponde ao estoque de cartões emitidos, apurado no trimestre, ou seja, os cartões que foram emitidos em todos os períodos anteriores até o final do trimestre de referência. Os cartões cancelados não integram esta estatística.|
-|qtdCartoesAtivos	|inteiro	|Quantidade de cartões ativos	|Corresponde ao estoque de cartões ativos, apurado no final do trimestre. São considerados como ativos os cartões que foram utilizados pelo menos uma vez no período que abrange os doze meses anteriores ao último dia do trimestre de referência.|
-|qtdTransacoesNacionais	|inteiro	|Quantidade de transações nacionais com cartão	|Corresponde à quantidade de transações com cartão realizadas no país|
-|valorTransacoesNacionais	|decimal	|Valor de transações nacionais com cartão	|Corresponde ao valor em reais de transações com cartão realizadas no país.|
-|qtdTransacoesInternacionais	|inteiro	|Quantidade de transações internacionais com cartão	|Corresponde à quantidade de transações com cartão realizadas fora do país.|
-|valorTransacoesInternacionais	|decimal	|Valor de transações internacionais com cartão	|Corresponde ao valor em reais de transações com cartão realizadas fora do país.|
+| `datatrimestre` | `texto` | Trimestre | - |
+| `valorPix` | `decimal` | Valor Pix | Volume financeiro (R$ milhões) de transações Pix liquidadas trimestralmente no SPI e fora do SPI, considerando ordens de pagamento e devoluções no período. Dados referentes às transações liquidadas fora do SPI estão sujeitas a alterações retroativas, pois dependem da prestação de informação pelos participantes. |
+| `valorTED` | `decimal` | Valor TED | Montante financeiro (R$ milhões) trimestral transferido por meio de TED. Transferência Eletrônica Direta (TED) - transferência financeira, em tempo real, entre diferentes bancos e demais instituições (financeiras ou de pagamentos) detentoras de conta no Banco Central. Pode ser utilizada para transferir valores entre correntistas de diferentes instituições, e entre as próprias instituições, envolvendo pagamento de obrigações ou não. |
+| `valorTEC` | `decimal` | Valor TEC  | Montante financeiro (R$ milhões) trimestral transferido por meio de TEC. Transferência Especial de Crédito (TEC) - transferência financeira utilizada por empresas para pagamento de benefícios aos empregados. |
+| `valorCheque` | `decimal` | Valor Cheque | Montante financeiro (R$ milhões) de cheques interbancários e intrabancários compensados trimestralmente. |
+| `valorBoleto` | `decimal` | Valor Boleto | Montante financeiro (R$ milhões) de boletos interbancários e intrabancários compensados trimestralmente. |
+| `valorDOC` | `decimal` | Valor DOC  | Montante financeiro (R$ milhões) trimestral transferido por meio de DOC. |
+| `valorCartaoCredito` | `decimal` | Valor Cartão de Crédito  | Valor (R$ milhões) de transações realizadas com cartão de crédito. |
+| `valorCartaoDebito` | `decimal` | Valor Cartão de Débito  | Valor (R$ milhões) de transações realizadas com cartão de débito trimestralmente. |
+| `valorCartaoPrePago` | `decimal` | Valor Cartão Pré-pago  | Valor (R$ milhões) de transações realizadas com cartão pré-pago trimestralmente. |
+| `valorTransIntrabancaria` | `decimal` | Valor Transferência Intrabancária | Montante financeiro (R$ milhões) de transferências realizadas trimestralmente entre contas de clientes da Instituição, inclusive aquelas envolvendo movimentações referentes a aplicações e resgates em fundos de investimento. |
+| `valorConvenios` | `decimal` | Valor Convênio  | Montante financeiro (R$ milhões) referente a arrecadações trimestrais governamentais (arrecadação de tributos e encargos sociais em virtude de convênios firmados entre a instituição e as entidades governamentais) e não-governamentais (arrecadações referentes aos convênios firmados entre a instituição e entidades privadas). |
+| `valorDebitoDireto` | `decimal` | Valor Débito Direto | Montante financeiro (R$ milhões) trimestral referente a débitos previamente autorizados pelo cliente em sua conta corrente/pagamento, referente ao pagamento de contas recorrentes e a débitos que a instituição efetua na conta dos clientes em virtude de cobrança de tarifas pelos serviços prestados. |
+| `valorSaques` | `decimal` | Valor Saque | Montante sacado (R$ milhões) nos caixas eletrônicos trimestralmente. |
+| `quantidadePix` | `decimal` | Quantidade Pix | Quantidade (em milhares) de transações Pix liquidadas trimestralmente no SPI e fora do SPI, considerando ordens de pagamento e devoluções no período. |
+| `quantidadeTED` | `decimal` | Quantidade TED | Quantidade (em milhares) de TED realizadas trimestralmente. Transferência Eletrônica Direta (TED) - transferência financeira, em tempo real, entre diferentes bancos e demais instituições (financeiras ou de pagamentos) detentoras de conta no Banco Central. Pode ser utilizada para transferir valores entre correntistas de diferentes instituições, e entre as próprias instituições, envolvendo pagamento de obrigações ou não. |
+| `quantidadeTEC` | `decimal` | Quantidade TEC | Quantidade (em milhares) de TEC realizadas trimestralmente. Transferência Especial de Crédito (TEC) - transferência financeira utilizada por empresas para pagamento de benefícios aos empregados. |
+| `quantidadeCheque` | `decimal` | Quantidade Cheque | Quantidade (em milhares) de cheques interbancários e de cheques intrabancários compensados trimestralmente. |
+| `quantidadeBoleto` | `decimal` | Quantidade Boleto | Quantidade (em milhares) de boletos interbancários e intrabancários compensados trimestralmente. |
+| `quantidadeDOC` | `decimal` | Quantidade DOC | Quantidade (em milhares) de DOC realizados trimestralmente. |
+| `quantidadeCartaoCredito` | `decimal` | Quantidade Cartão de Crédito | Quantidade (em milhares) de transações realizadas com cartão de crédito trimestralmente. |
+| `quantidadeCartaoDebito` | `decimal` | Quantidade Cartão de Débito | Quantidade (em milhares) de transações realizadas com cartão de débito trimestralmente. |
+| `quantidadeCartaoPrePago` | `decimal` | Quantidade Cartão Pré-pago | Quantidade (em milhares) de transações realizadas com cartão pré-pago trimestralmente. |
+| `quantidadeTransIntrabancaria` | `decimal` | Quantidade de Transferência Intrabancária | Quantidade (em milhares) de transferências realizadas trimestralmente entre contas de clientes da Instituição, inclusive aquelas envolvendo movimentações referentes a aplicações e resgates em fundos de investimento. |
+| `quantidadeConvenios` | `decimal` | Quantidade Convênio | Quantidade (em milhares) de transações realizadas referentes a arrecadações trimestrais governamentais (arrecadação de tributos e encargos sociais em virtude de convênios firmados entre a instituição e as entidades governamentais) e não-governamentais (arrecadações referentes aos convênios firmados entre a instituição e entidades privadas). |
+| `quantidadeDebitoDireto` | `decimal` | Quantidade Débito Direto | Quantidade (em milhares) de transações trimestrais referente a débitos previamente autorizados pelo cliente em sua conta corrente/pagamento, referente ao pagamento de contas recorrentes e a débitos que a instituição efetua na conta dos clientes em virtude de cobrança de tarifas pelos serviços prestados. |
+| `quantidadeSaques` | `decimal` | Quantidade de Saque | Quantidade (em milhares) de saques realizados nos caixas eletrônicos trimestralmente. |
